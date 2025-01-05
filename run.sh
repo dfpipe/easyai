@@ -1,1 +1,1 @@
-streamlit run stapp.py 
+streamlit run app.py 
