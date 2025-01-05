@@ -5,10 +5,9 @@ def call_customer_review_model():
     from dfpipe_eazyai import EazyaiCustomerReviewModel
 
     st.title("Explore Review Sentiment Model v2")
-    st.write("This is a free service to help you use pre-built AI models in your applications, business, analysis, etc.")
-    st.write("You can upload a CSV file with a 'text' column, or use the default data.")
-    st.write('If you upload a csv file, make sure the column name is "text"')
-    st.write("You may find more information at https://dfpipe.com")
+    st.write("Want to do know if a customer review or a social media post is positive or negative?")
+    st.write("Try our sentiment analysis model v2. It's free and easy to use.")
+    st.write("If you want to programatically call this model, please visit https://dfpipe.com for more information.")
 
     # Allow user to upload a CSV file
     uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
@@ -34,6 +33,7 @@ def call_customer_review_model():
                 results_json = result['body']['results']
                 df1 = pd.DataFrame(results_json)
                 df1 = df.merge(df1, left_index=True, right_index=True)
+                df1['y'] = df1['y'].map({0: 'negative', 1: 'positive'})
                 st.write(df1)
             else:
                 st.error(result['body'])
