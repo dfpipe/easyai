@@ -29,6 +29,8 @@ def logo_demo():
     
 
     def run_model(image):
+        st.image(image)
+        st.warning("Please wait for a while, it may take a few seconds to get the result")
         model = EazyaiLogoV4()
         result = model.detect_image(image)
         # get 1st image's result
