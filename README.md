@@ -12,3 +12,10 @@ EazyAI is a simple Python library that enables developers to easily integrate ad
 
 ## Installation
 
+```bash
+pip install -e .
+```
+
+## Usage
+
+
